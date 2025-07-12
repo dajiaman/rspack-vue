@@ -13,6 +13,7 @@ function createWindow() {
     show: false,
     icon: path.resolve(__dirname, '../assets/icon.svg'),
     webPreferences: {
+      webSecurity: false,
       nodeIntegration: true,
       contextIsolation: false,
       enableRemoteModule: true,
@@ -30,6 +31,7 @@ function createWindow() {
     mainWindow.show();
   });
 
+  // development mode
   if (isDev) {
     mainWindow.loadURL('http://localhost:8080');
   } else {
@@ -52,3 +54,5 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
+// ipc 通信
